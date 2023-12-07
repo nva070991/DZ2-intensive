@@ -7,16 +7,19 @@ import './style.css';
 
 function ItemBasket(props) {
 
+
   const cn = bem('ItemBasket');
 
   const callbacks = {
-    onRemove: (e) => props.onRemove(props.item._id)
+    onRemove: (e) => props.onRemove(props.item._id),
+    onNavigate: () => props.onNavigate(props.item._id)
+    
   };
 
   return (
     <div className={cn()}>
-      {/*<div className={cn('code')}>{props.item._id}</div>*/}
-      <div className={cn('title')}>{props.item.title}</div>
+
+      <div onClick={callbacks.onNavigate} className={cn('title')}>{props.item.title}</div>
       <div className={cn('right')}>
         <div className={cn('cell')}>{numberFormat(props.item.price)} ₽</div>
         <div className={cn('cell')}>{numberFormat(props.item.amount || 0)} шт</div>
@@ -36,6 +39,7 @@ ItemBasket.propTypes = {
     amount: PropTypes.number
   }).isRequired,
   onRemove: propTypes.func,
+  onNavigate:propTypes.func,
 }
 
 ItemBasket.defaultProps = {

@@ -1,0 +1,44 @@
+.Product {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 18px;
+  gap: 20px;
+  color: #000;
+  font-family: Arial;
+  font-weight: 400;
+}
+
+.Product-year,
+.Product-country,
+.Product-category,
+.Product-year,
+.Product-price {
+  font-weight: 700;
+}
+
+.Product-price-box {
+  color: #000;
+  font-family: Arial;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.Product-description {
+  width: 943px;
+
+}
+.Product-description,
+.Product-country-box,
+.Product-category-box,
+.Product-year-box,
+.Product-price-box {
+  margin: 0px;
+}
+
+.Product-button {
+  width: 76px;
+  height: 21px;
+  flex-shrink: 0;
+}
