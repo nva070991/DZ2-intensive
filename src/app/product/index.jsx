@@ -5,11 +5,10 @@ import BasketTool from "../../components/basket-tool";
 import useStore from "../../store/use-store";
 import useSelector from "../../store/use-selector";
 import {useLoaderData, useNavigate} from 'react-router-dom';
-import Basket from '../../app/basket';
+import Basket from '../basket';
 import {cn as bem} from '@bem-react/classname';
 import "./style.css";
-import {numberFormat} from "../../utils";
-
+import ProductInfo from '../../components/product-info';
 
 
 function Product() {
@@ -18,6 +17,7 @@ function Product() {
   const navigate = useNavigate();
   const { data } = useLoaderData();
   const activeModal = useSelector(state => state.modals.name);
+  
 
 
 
@@ -47,22 +47,7 @@ function Product() {
         <Head title={data.title} />
         <BasketTool onOpen={callbacks.openModalBasket} amount={select.amount}
           sum={select.sum} />
-          <div className={cn()}>
-      <div className={cn('description')}>{data.description}</div>
-      <div className={cn('country-box')}>
-        Страна производитель: <span className={cn('country')}>{data.country}</span>
-      </div>
-      <div className={cn('category-box')}>
-        Категория: <span className={cn('category')}>{data.category}</span>
-      </div>
-      <div className={cn('year-box')}>
-        Год выпуска: <span className={cn('year')}>{data.year}</span>
-      </div>
-      <div className={cn('price-box')}>
-        Цена: <span className={cn('price')}>{numberFormat(data.price)} ₽</span>
-      </div>
-      <button className={cn('button')} onClick={callbacks.addToBasket}>Добавить</button>
-    </div >
+          <ProductInfo addToBasket={callbacks.addToBasket} data={data}/>
       </PageLayout>
       {activeModal === 'basket' && <Basket />}
     </>

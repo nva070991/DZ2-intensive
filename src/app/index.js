@@ -1,7 +1,7 @@
 import Main from "./main";
 import useStore from "../store/use-store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Product from '../components/product'
+import Product from './product'
 
 
 

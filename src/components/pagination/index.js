@@ -56,7 +56,8 @@ function Pagination({ currentPage, maxPages }) {
         <div
           key={index}
           className={cn(
-            index === countPageSelect(currentPage) ? "page select" : "page"
+            index === countPageSelect(currentPage) ? "page select" : "page",
+            page > 9 ? 'big' : ''
           )}
         >
           {page === "..." ? (
