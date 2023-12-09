@@ -1,4 +1,4 @@
-import { memo,  } from "react";
+import { memo } from "react";
 import { cn as bem } from "@bem-react/classname";
 import PropTypes from "prop-types";
 import "./style.css";
@@ -57,7 +57,8 @@ function Pagination({ currentPage, maxPages }) {
           key={index}
           className={cn(
             index === countPageSelect(currentPage) ? "page select" : "page",
-            page > 9 ? 'big' : ''
+            page > 9 ? "big" : "",
+            page > 99 ? "max" : ""
           )}
         >
           {page === "..." ? (
@@ -75,9 +76,7 @@ function Pagination({ currentPage, maxPages }) {
 
 Pagination.propTypes = {
   maxPages: PropTypes.number,
-  currentPage: PropTypes.number
+  currentPage: PropTypes.number,
 };
-
-
 
 export default memo(Pagination);
