@@ -10,6 +10,8 @@ import Pagination from "../../components/pagination";
 import { useLoaderData } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Basket from "../basket";
+import Menu from "../../components/menu";
+import ToolsLayout from "../../components/tools-layout";
 
 function Main() {
   const activeModal = useSelector((state) => state.modals.name);
@@ -66,11 +68,14 @@ function Main() {
     <>
       <PageLayout>
         <Head title="Магазин" />
-        <BasketTool
-          onOpen={callbacks.openModalBasket}
-          amount={select.amount}
-          sum={select.sum}
-        />
+        <ToolsLayout>
+          <Menu />
+          <BasketTool
+            onOpen={callbacks.openModalBasket}
+            amount={select.amount}
+            sum={select.sum}
+          />
+        </ToolsLayout>
         <List list={select.list} renderItem={renders.item} />
         <Pagination
           maxPages={Math.ceil(Number(select.count) / 10)}

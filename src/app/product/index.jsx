@@ -9,6 +9,8 @@ import Basket from '../basket';
 import {cn as bem} from '@bem-react/classname';
 import "./style.css";
 import ProductInfo from '../../components/product-info';
+import ToolsLayout from '../../components/tools-layout';
+import Menu from '../../components/menu';
 
 
 function Product() {
@@ -45,8 +47,11 @@ function Product() {
     <>
       <PageLayout>
         <Head title={data.title} />
+        <ToolsLayout>
+        <Menu/>
         <BasketTool onOpen={callbacks.openModalBasket} amount={select.amount}
           sum={select.sum} />
+        </ToolsLayout>
           <ProductInfo addToBasket={callbacks.addToBasket} data={data}/>
       </PageLayout>
       {activeModal === 'basket' && <Basket />}
